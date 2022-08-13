@@ -1,0 +1,18 @@
+TODO
+
+
+0. Create a new blueprint named teacher and add it in server.py
+
+1. Create TWO API
+
+
+
+A. API to get all assignment submitted to particular teacher (GET REQUEST)
+    1. In our assignment, model we already have teacher_id,so we can use that to query all assignment submitted to particular teacher
+    2. Client need to provide teacher_id(it will be present in our header or payload data)
+    3. We need a schema to convert python data type to json format and we already have that
+
+B. API to grade assignment (POST REQUEST)
+    1. Client need to provide assignment_id and grade and also user info who is trying to make request
+    2. We need a new method to update assignment model
+    3. We need to create a new schema
