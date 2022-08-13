@@ -80,7 +80,7 @@ class Assignment(db.Model):
     # creating a class method, to get all assignments submitted to teacher
     @classmethod
     def get_assignments_submitted_to_student(cls, teacher_id):
-        return cls.filter(cls.teacher_id == teacher_id).all()
+        return cls.filter(cls.teacher_id == teacher_id).filter(cls.state == AssignmentStateEnum.SUBMITTED ).all()
 
     @classmethod
     def grade_student_assignment(cls, _id, _grade, principal: Principal):
