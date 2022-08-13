@@ -7,13 +7,13 @@ from core.models.assignments import Assignment
 from .schema import AssignmentSchema, AssignmentGradeSchema
 teacher_assignments_resources = Blueprint('teacher_assignments_resources', __name__)
 
+
 @teacher_assignments_resources.route('/assignments', methods=['GET'], strict_slashes=False)
 @decorators.auth_principal
-def list_assignments(p):
-    """Returns list of assignments"""
-    students_assignments = Assignment.get_assignments_submitted_to_student(p.student_id)
-    students_assignments_dump = AssignmentSchema().dump(students_assignments, many=True)
-    return APIResponse.respond(data=students_assignments_dump)
+def list_assignment(p):
+    teacher_assignments = Assignment.get_assignments_submitted_to_student(p.teacher_id)
+    teacher_assignments_dump = AssignmentSchema().dump(teacher_assignments, many=True)
+    return APIResponse.respond(data=teacher_assignments_dump)
 
 
 #API for grading the assignment

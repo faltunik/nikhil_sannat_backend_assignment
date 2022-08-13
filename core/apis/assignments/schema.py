@@ -38,7 +38,6 @@ class AssignmentSubmitSchema(Schema):
         return GeneralObject(**data_dict)
 
 
-# shcema for grading the assignment
 class AssignmentGradeSchema(Schema):
     class Meta:
         unknown = EXCLUDE
@@ -49,3 +48,4 @@ class AssignmentGradeSchema(Schema):
     @post_load
     def initiate_class(self, data_dict, many, partial):
         return GeneralObject(**data_dict)
+
